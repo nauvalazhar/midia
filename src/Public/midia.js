@@ -89,8 +89,6 @@
         actions: ['copy_url', 'download', 'rename', 'delete'],
         can_choose: true,
         load_ajax_type: 'get',
-        initial_value: null,
-        initial_preview: null,
         onOpen: function() {},
         onOpened: function() {},
         onClose: function() {},
@@ -378,10 +376,10 @@
             });
 
             let target = $elem.data(options.data_target);
-            options.initial_value && $("#" + target).val(options.initial_value);
+            $("#" + target).val('');
 
             let preview = $elem.data(options.data_preview);
-            options.initial_preview && $("#" + preview).attr('src', options.initial_preview);
+            $("#" + preview).removeAttr('src').removeAttr('src-full');
 
             if(options.inline == true) {
                 midia.open();
